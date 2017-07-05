@@ -1,0 +1,23 @@
+apply plugin: 'findbugs'
+check.dependsOn 'findbugs'
+task findbugs(type: FindBugs) {
+    ignoreFailures = false
+    effort = "max"
+    reportLevel = "high"
+    classes = files("${project.rootDir}/app/build/intermediates/classes")
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        xml {
+            destination "$project.buildDir/reports/findbugs/findbugs.xml"
+        }
+        html {
+            destination "$project.buildDir/reports/findbugs/index.html"
+        }
+    }
+    classpath = files()
+    dependsOn 'assembleDebug'
+}

@@ -1,0 +1,11 @@
+apply plugin: 'com.uber.infer.android'
+inferPlugin {
+    infer {
+        include = project.files("src/main")
+        exclude = project.files("build/")
+    }
+    eradicate {
+        include = project.files("src/main")
+        exclude = project.files("build/")
+    }
+}

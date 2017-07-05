@@ -1,0 +1,4 @@
+//lint rules of conduct
+warningsAsErrors true
+abortOnError true
+htmlReport true
